@@ -1,4 +1,4 @@
-package main
+package server
 
 import (
 	"grpc/server/countries"

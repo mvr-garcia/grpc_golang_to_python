@@ -1,5 +1,8 @@
-services:
-    server:
+version: '3'
 
-    client:
-        
+
+services:
+
+    server:
+        build: .
+        container_name: grpc_container

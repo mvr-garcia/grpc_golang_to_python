@@ -1,20 +1,20 @@
 FROM golang:1.16-alpine
 
+RUN mkdir /app
+## We copy everything in the root directory
+## into our /app directory
+ADD . /app
+
+## We specify that we now wish to execute 
+## any further commands inside our /app
+## directory
 # Set the Current Working Directory inside the container
 WORKDIR /app
 
-# We want to populate the module cache based on the go.{mod,sum} files.
-COPY go.mod .
-COPY go.sum .
+RUN go build -o main .
 
-RUN go mod download
-
-COPY . .
-
-RUN echo ls
-
-# This container exposes port 8080 to the outside world
+# This container exposes port to the outside world
 EXPOSE 3000
 
 # Build
-CMD [ "cd server/" ]
+CMD [ "/app/main" ]

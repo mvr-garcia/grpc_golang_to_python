@@ -1,4 +1,4 @@
-package main
+package server
 
 import (
 	"encoding/json"
@@ -13,7 +13,7 @@ import (
 	"google.golang.org/grpc"
 )
 
-func main() {
+func ServerStart() {
 	grpcServer := grpc.NewServer()
 	var server Server
 	countries.RegisterCountryServer(grpcServer, server)
