@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Country Info</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container-sm">        
+        <div class="content">
+            <figure class="text-center">
+                <p align="center"><h1 class="display-1">Country Infopédia</h1><h6> <small class="text-muted">by <a href="mailto:mvrgarcia05@gmail.com">Marcos Garcia</a></small></h6></p>
+            </figure>
+            <p><h5>This is a simple site that recover the information of the country searched.</h5></p>
+        </div>
+        
+        <form action="{{url_for('infotable')}}" method ="POST">
+            <div class="input-group flex-nowrap">
+                <input type="search" class="form-control rounded" placeholder="Country" aria-label="Search" aria-describedby="search-addon" name="country" />
+                <button class="btn btn-outline-primary" type="submit" value="Submit">search</button>
+            </div>
+        </form>
+
+        <div class="content mt-5">
+        {% if infodata %}
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Abbreviation</th>
+                    <th scope="col">Capital</th>
+                    <th scope="col">Sub Region</th>
+                    <th scope="col">Population</th>
+                    <th scope="col">Native Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>{{infodata.name}}</td>
+                    <td>{{infodata.alpha2Code}}</td>
+                    <td>{{infodata.capital}}</td>
+                    <td>{{infodata.subregion}}</td>
+                    <td>{{infodata.population}}</td>
+                    <td>{{infodata.nativeName}}</td>
+                    </tr>
+                </tbody>
+                </table>
+        {% endif %}
+        <div class="content">
+    </div>
+</body>
+</html>
