@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"grpc/server/countries"
 	"io/ioutil"
 	"log"
@@ -32,7 +33,7 @@ type Server struct{}
 // Search function responsible to get the Country information
 func (Server) Search(ctx context.Context, request *countries.CountryRequest) (*countries.CountryResponse, error) {
 	resp, err := http.Get("https://restcountries.eu/rest/v2/name/ " + request.Name)
-
+	fmt.Println("teste")
 	if err != nil {
 		return nil, err
 	}
