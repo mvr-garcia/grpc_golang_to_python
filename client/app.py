@@ -11,7 +11,9 @@ def countrie_client(countrie):
     print("Start service")
 
     try:
-        channel = insecure_channel('localhost:3000')
+        host = "server"
+        port = 3000
+        channel = insecure_channel(f'{host}:{port}')
         stub = countries_pb2_grpc.CountryStub(channel)
         country_request = countries_pb2.CountryRequest(name=countrie)
         country_response = stub.Search(country_request)

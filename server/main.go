@@ -11,12 +11,15 @@ import (
 
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
+
+	"google.golang.org/grpc/reflection"
 )
 
 func ServerStart() {
 	grpcServer := grpc.NewServer()
 	var server Server
 	countries.RegisterCountryServer(grpcServer, server)
+	reflection.Register(grpcServer)
 	listen, err := net.Listen("tcp", "0.0.0.0:3000")
 
 	if err != nil {
