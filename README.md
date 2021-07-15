@@ -63,7 +63,7 @@ python3 -m flask run
 
 Access the service in [http://localhost:5000](http://localhost:5000/).
 
-## Special credits
+## Special thanks
 
 To the [Matheus Rocha](https://github.com/matheusrocha-mb)
 Your help with the Docker in golang was essential.
